@@ -7,9 +7,9 @@ namespace FailCake.Hierarchy.Editor
     {
         #region PRIVATE
 
-        private static readonly Dictionary<int, bool> _isFolderCache = new();
-        private static readonly Dictionary<int, List<Folder>> _chainCache = new();
-        private static readonly HashSet<int> _noChainCache = new();
+        private static readonly Dictionary<EntityId, bool> _isFolderCache = new();
+        private static readonly Dictionary<EntityId, List<Folder>> _chainCache = new();
+        private static readonly HashSet<EntityId> _noChainCache = new();
 
         #endregion
 
@@ -23,7 +23,7 @@ namespace FailCake.Hierarchy.Editor
         public static bool IsFolder(GameObject go)
         {
             if (go == null) return false;
-            int id = go.GetInstanceID();
+            EntityId id = go.GetEntityId();
             if (_isFolderCache.TryGetValue(id, out var cached)) return cached;
 
             bool has = go.TryGetComponent<Folder>(out _);
@@ -34,7 +34,7 @@ namespace FailCake.Hierarchy.Editor
         public static List<Folder> GetFolderChain(GameObject go)
         {
             if (go == null) return null;
-            int id = go.GetInstanceID();
+            EntityId id = go.GetEntityId();
 
             if (_chainCache.TryGetValue(id, out var cached)) return cached;
             if (_noChainCache.Contains(id)) return null;

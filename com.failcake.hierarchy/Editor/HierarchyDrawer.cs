@@ -12,7 +12,7 @@ namespace FailCake.Hierarchy.Editor
         private const int IconPadding = 2;
         private const float FolderTintSelfAlpha = 0.18F;
 
-        private readonly HashSet<int> _errorHandled = new();
+        private readonly HashSet<EntityId> _errorHandled = new();
 
         private readonly List<HierarchyColumn> _preComponents = new();
         private readonly List<HierarchyColumn> _orderedComponents = new();
@@ -49,13 +49,13 @@ namespace FailCake.Hierarchy.Editor
             FolderChain.Invalidate();
         }
 
-        public void HierarchyWindowItemOnGUI(int instanceId, Rect selectionRect)
+        public void HierarchyWindowItemOnGUI(EntityId instanceId, Rect selectionRect)
         {
             try
             {
                 ColorUtils.SetDefaultColor(GUI.color);
 
-                var go = EditorUtility.InstanceIDToObject(instanceId) as GameObject;
+                var go = EditorUtility.EntityIdToObject(instanceId) as GameObject;
                 if (go == null) return;
 
                 FolderExpansion.RecordVisibleRow(go);

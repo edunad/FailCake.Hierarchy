@@ -9,8 +9,8 @@ namespace FailCake.Hierarchy.Editor
     {
         #region PRIVATE
 
-        private static HashSet<int> _expanded = new();
-        private static HashSet<int> _building = new();
+        private static HashSet<EntityId> _expanded = new();
+        private static HashSet<EntityId> _building = new();
         private static bool _freshData;
 
         #endregion
@@ -32,12 +32,12 @@ namespace FailCake.Hierarchy.Editor
             while (t != null)
             {
                 if (t.TryGetComponent<Folder>(out _))
-                    _building.Add(t.gameObject.GetInstanceID());
+                    _building.Add(t.gameObject.GetEntityId());
                 t = t.parent;
             }
         }
 
-        public static bool IsFolderExpanded(int folderInstanceId)
+        public static bool IsFolderExpanded(EntityId folderInstanceId)
         {
             return _expanded.Contains(folderInstanceId);
         }
