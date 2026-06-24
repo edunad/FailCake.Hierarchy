@@ -15,8 +15,8 @@ namespace FailCake.Hierarchy.Editor
 
         static HierarchyInitializer()
         {
-            EditorApplication.hierarchyWindowItemOnGUI -= OnHierarchyItem;
-            EditorApplication.hierarchyWindowItemOnGUI += OnHierarchyItem;
+            EditorApplication.hierarchyWindowItemByEntityIdOnGUI -= OnHierarchyItem;
+            EditorApplication.hierarchyWindowItemByEntityIdOnGUI += OnHierarchyItem;
 
             EditorApplication.hierarchyChanged         -= OnHierarchyChanged;
             EditorApplication.hierarchyChanged         += OnHierarchyChanged;
@@ -32,7 +32,7 @@ namespace FailCake.Hierarchy.Editor
             if (_hierarchy == null) _hierarchy = new HierarchyDrawer();
         }
 
-        private static void OnHierarchyItem(int instanceId, Rect selectionRect)
+        private static void OnHierarchyItem(EntityId instanceId, Rect selectionRect)
         {
             EnsureReady();
             _hierarchy.HierarchyWindowItemOnGUI(instanceId, selectionRect);
