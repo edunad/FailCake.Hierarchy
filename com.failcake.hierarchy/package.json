@@ -1,0 +1,17 @@
+{
+  "name": "com.failcake.hierarchy",
+  "displayName": "FailCake Hierarchy",
+  "version": "1.0.0",
+  "unity": "6000.0",
+  "description": "Custom Hierarchy",
+  "type": "library",
+  "keywords": [
+    "folders",
+    "hierarchy",
+    "editor"
+  ],
+  "author": {
+    "name": "FailCake",
+    "url": "https://github.com/edunad/FailCake.Hierarchy"
+  }
+}
