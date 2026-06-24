@@ -16,5 +16,5 @@
 ## Installation
 Package Manager > Add Git URL:
 ```
-https://github.com/edunad/FailCake.Hierarchy.git?path=/com.failcake.vis.hierarchy
+https://github.com/edunad/FailCake.Hierarchy.git?path=/com.failcake.hierarchy
 ```
