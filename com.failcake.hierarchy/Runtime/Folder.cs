@@ -39,10 +39,6 @@ namespace FailCake.Hierarchy
         {
             if (Application.isPlaying) return;
 
-            if (this.transform.localPosition != Vector3.zero) this.transform.localPosition = Vector3.zero;
-            if (this.transform.localRotation != Quaternion.identity) this.transform.localRotation = Quaternion.identity;
-            if (this.transform.localScale != Vector3.one) this.transform.localScale = Vector3.one;
-
             if (this._iconClearPending) return;
             this._iconClearPending = true;
 
